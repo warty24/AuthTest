@@ -23,7 +23,6 @@ public class MainPage extends PageTools {
     }
     public void setFilter (String partition)
     {
-        waitForElementVisibility(dropDownBox);
         Selenide.$(dropDownBox).click();
         Selenide.$(By.linkText(partition)).click();
     }

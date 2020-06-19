@@ -1,13 +1,16 @@
 package com.core.base;
 
 import com.codeborne.selenide.*;
+import com.codeborne.selenide.conditions.Exist;
 import com.core.allure.AllureLogger;
 import com.core.utils.LocatorParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.*;
@@ -147,6 +150,19 @@ public class PageTools extends AllureLogger {
     protected boolean isElementExists(By by, Object... args) {
         logInfo(getPreviousMethodNameAsText() + ", element --> " + byLocator(by, args));
         return isCondition(Condition.exist, by, args);
+    }
+    protected boolean isExist (WebElement we)
+    {
+        try {
+            if (we != null) {
+                return true;
+            }
+        }
+        catch (NoSuchElementException ex)
+        {
+            return false;
+        }
+        return false;
     }
 
     /*Working with wait*/
