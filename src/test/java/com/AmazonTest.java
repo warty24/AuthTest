@@ -10,8 +10,8 @@ public class AmazonTest extends BaseTest {
     @Test
     public void amazonTest() {
         Actions.mainPageActions().search("java","Books");
-        Pages.searchPage().findResults();
-        Pages.searchPage().parseResults();
-        Collections.cOutAllBooks();
+        Actions.searchPageActions().collectRresults();
+        Actions.productPageActions().createExpectedBook();
+        System.out.println(Actions.productPageActions().findBookInCollection());
     }
 }

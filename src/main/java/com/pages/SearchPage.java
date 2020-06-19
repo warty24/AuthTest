@@ -15,28 +15,18 @@ public class SearchPage extends PageTools {
     private By subString = By.cssSelector("div.a-row.a-size-base.a-color-secondary");
 
     public void findResults () {
-       Collections.searchRelts().addAll(Selenide.$$(searchResults));
+       Collections.searchResults().addAll(Selenide.$$(searchResults));
     }
     public void parseResults () {
-        for(WebElement we : Collections.searchRelts()) {
+        for(WebElement we : Collections.searchResults()) {
             String name, author;
-            boolean isBestSeller = false;
-            if (we.getText().contains("Best Seller")) {
-                isBestSeller = true;
-            }
             name = we.findElement(resultName).getText();
             author = validateAuthor(we.findElement(subString).getText());
-            Collections.bookList().add(new Book(name,author,isBestSeller));
+            Collections.bookList().add(new Book(name,author,isBestSeller(we)));
         }
     }
-    public String cutStrTo (String s, char to) {
-        return s.substring(0,s.indexOf(to));
-    }
-    public String cutStrFromTo(String s, char from, char to) {
-        return s.substring(s.indexOf(from) + 1, s.indexOf(to)-1);
-    }
-    public String validateAuthor (String s)
-    {
+
+    public String validateAuthor (String s) {
         try {
             return cutStrFromTo(s, ' ', '|');
         }
@@ -44,5 +34,9 @@ public class SearchPage extends PageTools {
             return s;
         }
     }
-
+    public boolean isBestSeller (WebElement we) {
+        if (we.getText().contains("Best Seller")) {
+            return true;
+        } else return false;
+    }
 }

@@ -5,6 +5,8 @@ public class Book {
     private String name, author;
     private boolean isBestSeller;
 
+    Book () {
+    }
     public Book (String name, String author) {
         this.name = name;
         this.author = author;
@@ -21,13 +23,19 @@ public class Book {
         }
         System.out.println(name + '\n' + author + '\n');
     }
-    void setBestSeller(boolean isBestSeller) {
+    public void setBestSeller(boolean isBestSeller) {
         this.isBestSeller = isBestSeller;
     }
-    String getName() {
+    public void setName (String name) {
+        this.name = name;
+    }
+    public void setAuthor (String author) {
+        this.author = author;
+    }
+    public String getName() {
         return name;
     }
-    String getAuthor() {
+    public String getAuthor() {
         return author;
     }
 }
