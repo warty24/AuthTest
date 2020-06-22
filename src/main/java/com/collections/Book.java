@@ -5,7 +5,7 @@ public class Book {
     private String name, author;
     private boolean isBestSeller;
 
-    Book () {
+    public Book () {
     }
     public Book (String name, String author) {
         this.name = name;

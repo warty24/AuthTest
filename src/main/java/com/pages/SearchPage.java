@@ -20,16 +20,15 @@ public class SearchPage extends PageTools {
 
     public void parseResults() {
         for(int i = 0; i<Collections.searchResults().size(); i++ ) {
-            String name = getSubElementText(Collections.searchResults().get(i), resultName);
-            String author = validateAuthor(getSubElementText(Collections.searchResults().get(i), subString));
-            boolean isBestSeller = isElementContainsText(Collections.searchResults().get(i), "Best Seller");
-            addABookToCollection(name,author,isBestSeller);
+            Book book = new Book();
+            book.setName(getSubElementText(Collections.searchResults().get(i), resultName));
+            book.setAuthor(validateAuthor(getSubElementText(Collections.searchResults().get(i), subString)));
+            if(isElementContainsText(Collections.searchResults().get(i), "Best Seller")) {
+                book.setBestSeller(true);
+            }
+            Collections.bookList().add(book);
         }
-        /*
-        for (WebElement we : Collections.searchResults()) {
-            addABookToCollection(getSubElementText(we, resultName),validateAuthor(getSubElementText(we, subString)),isBestSeller(we));
-        }
-        */
+
     }
 
     private String validateAuthor(String s) {
@@ -39,14 +38,4 @@ public class SearchPage extends PageTools {
             return s;
         }
     }
-
-    private void addABookToCollection(String name, String author, boolean isBestSeller) {
-        Collections.bookList().add(new Book(name, author, isBestSeller));
-    }
-
-
-
-
-
-
 }
