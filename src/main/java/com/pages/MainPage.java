@@ -18,7 +18,8 @@ public class MainPage extends PageTools {
     public void search (String search) {
         waitForElementVisibility(searchBox);
         type(search, searchBox);
-        Selenide.$(searchBox).submit();
+        clickEnterButton();
+       // Selenide.$(searchBox).submit();
     }
     public void setFilter ()
     {

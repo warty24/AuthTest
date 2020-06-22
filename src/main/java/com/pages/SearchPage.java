@@ -1,13 +1,11 @@
 package com.pages;
 
-import com.codeborne.selenide.Condition;
 import com.collections.Book;
 import com.collections.Collections;
 import com.core.base.PageTools;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import static com.codeborne.selenide.Selenide.$;
 
 
 public class SearchPage extends PageTools {
