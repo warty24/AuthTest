@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide;
 import com.core.base.PageTools;
 import com.core.utils.Constants;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 
 public class ProductPage extends PageTools {
 

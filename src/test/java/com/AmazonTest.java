@@ -1,10 +1,10 @@
 package com;
 
 import com.actions.Actions;
-import com.collections.Collections;
 import com.core.base.BaseTest;
-import com.pages.Pages;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertTrue;
 
 public class AmazonTest extends BaseTest {
     @Test
@@ -12,6 +12,6 @@ public class AmazonTest extends BaseTest {
         Actions.mainPageActions().search("java","Books");
         Actions.searchPageActions().collectRresults();
         Actions.productPageActions().createExpectedBook();
-        System.out.println(Actions.productPageActions().findBookInCollection());
+        assertTrue (Actions.productPageActions().findBookInCollection());
     }
 }
