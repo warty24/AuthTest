@@ -9,9 +9,9 @@ import static org.testng.Assert.assertTrue;
 public class AmazonTest extends BaseTest {
     @Test
     public void amazonTest() {
-        Actions.mainPageActions().search("java","Books");
+        Actions.mainPageActions().search("java");
         Actions.searchPageActions().collectRresults();
         Actions.productPageActions().createExpectedBook();
-        assertTrue (Actions.productPageActions().findBookInCollection());
+        assertTrue (Actions.productPageActions().findExpectedBookInCollection());
     }
 }

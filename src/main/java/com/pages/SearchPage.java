@@ -1,11 +1,13 @@
 package com.pages;
 
-import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.Condition;
 import com.collections.Book;
 import com.collections.Collections;
 import com.core.base.PageTools;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import static com.codeborne.selenide.Selenide.$;
 
 
 public class SearchPage extends PageTools {
@@ -15,7 +17,8 @@ public class SearchPage extends PageTools {
     private By subString = By.cssSelector("div.a-row.a-size-base.a-color-secondary");
 
     public void findResults () {
-       Collections.searchResults().addAll(Selenide.$$(searchResults));
+        waitForElementVisibility(searchResults);
+        Collections.searchResults().addAll(getElements(searchResults));
     }
     public void parseResults () {
         for(WebElement we : Collections.searchResults()) {
@@ -26,7 +29,7 @@ public class SearchPage extends PageTools {
         }
     }
 
-    public String validateAuthor (String s) {
+    private String validateAuthor (String s) {
         try {
             return cutStrFromTo(s, ' ', '|');
         }
@@ -34,9 +37,7 @@ public class SearchPage extends PageTools {
             return s;
         }
     }
-    public boolean isBestSeller (WebElement we) {
-        if (we.getText().contains("Best Seller")) {
-            return true;
-        } else return false;
+    private boolean isBestSeller (WebElement we) {
+        return (we.getText().contains("Best Seller"));
     }
 }

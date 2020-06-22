@@ -9,21 +9,20 @@ import org.openqa.selenium.By;
 public class MainPage extends PageTools {
 
     private By searchBox = By.cssSelector("input#twotabsearchtextbox");
-    private By dropDownBox = By.cssSelector("#searchDropdownBox");
-
-
+    private By dropDownBox = By.cssSelector(".nav-search-scope.nav-sprite");
+    private By bookPartition = By.cssSelector("#searchDropdownBox > option:nth-child(6)");
 
     public void loadPage () {
         Selenide.open(Constants.MAIN_PAGE_URL);
     }
     public void search (String search) {
         waitForElementVisibility(searchBox);
-        Selenide.$(searchBox).sendKeys(search);
+        type(search, searchBox);
         Selenide.$(searchBox).submit();
     }
-    public void setFilter (String partition)
+    public void setFilter ()
     {
-        Selenide.$(dropDownBox).click();
-        Selenide.$(By.linkText(partition)).click();
+        click(dropDownBox);
+        click(bookPartition);
     }
 }

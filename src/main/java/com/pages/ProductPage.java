@@ -15,15 +15,15 @@ public class ProductPage extends PageTools {
         Selenide.open(Constants.EXPECTED_BOOK_URL);
     }
     public String getProductName() {
-        return Selenide.$(productTitle).getText();
+        return getElementText(productTitle);
     }
     private  String getBookAuthorElement() {
-        return Selenide.$(bookAuthor).getText();
+        return getElementText(bookAuthor);
     }
     public String getBookAuthor () {
         return cutStrFromTo(getBookAuthorElement(),'\n','(').replace("(Author),\n", "and ");
     }
     public boolean isBestSeller () {
-        return (Selenide.$(bestSeller).exists());
+        return isElementExists(bestSeller);
     }
 }

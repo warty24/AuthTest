@@ -14,15 +14,14 @@ public class ProductPageActions {
         expectedBook().setName(Pages.productPage().getProductName());
         expectedBook().setAuthor(Pages.productPage().getBookAuthor());
     }
-    public boolean findBookInCollection (){
+    public boolean findExpectedBookInCollection (){
         for(Book b : Collections.bookList()){
             if(isBooksEqual(b,expectedBook())) return true;
         }
         return false;
     }
-    public boolean isBooksEqual (Book b1, Book b2)
+    private boolean isBooksEqual (Book b1, Book b2)
     {
-        if (b1.getName().contains(b2.getName())) return true;
-        else return false;
+        return  (b1.getName().contains(b2.getName()));
     }
 }

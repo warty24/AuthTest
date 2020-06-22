@@ -195,9 +195,12 @@ public class PageTools extends AllureLogger {
         return shouldBe(sizeGreaterThan(-1), by, args).texts();
 //        return $$(byLocator(by, args)).texts();
     }
+
+    /**
+     * Strings
+     */
     protected String cutStrFromTo(String s, char from, char to) {
         return s.substring(s.indexOf(from) + 1, s.lastIndexOf(to)-1);
     }
-
 
 }
