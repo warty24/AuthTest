@@ -9,6 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -164,6 +165,10 @@ public class PageTools extends AllureLogger {
         }
         return false;
     }
+    protected boolean isElementContainsText(WebElement we, String text)
+    {
+        return (getElementText(we).contains(text));
+    }
 
     /*Working with wait*/
     protected boolean isElementEnabled(By by, Object... args) {
@@ -177,6 +182,10 @@ public class PageTools extends AllureLogger {
     protected String getElementText(By by, Object... args) {
         logInfo(getPreviousMethodNameAsText() + ", element --> " + byLocator(by, args));
         return shouldBe(Condition.visible, by, args).text();
+    }
+
+    protected String getSubElementText (WebElement we, By nameLocator) {
+        return getElementText(findElementInsideOther(we, nameLocator));
     }
 
     protected String getElementAttributeValue(String attr, By by, Object... args) {
@@ -202,5 +211,21 @@ public class PageTools extends AllureLogger {
     protected String cutStrFromTo(String s, char from, char to) {
         return s.substring(s.indexOf(from) + 1, s.lastIndexOf(to)-1);
     }
+
+    /**
+     * Other
+     */
+
+    protected void openPage (String url)
+    {
+        Selenide.open(url);
+    }
+    protected WebElement findElementInsideOther (WebElement we, By by){
+        return we.findElement(by);
+    }
+    protected String getElementText(WebElement we) {
+        return  we.getText();
+    }
+
 
 }

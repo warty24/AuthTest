@@ -4,7 +4,6 @@ import com.collections.Book;
 import com.collections.Collections;
 import com.core.base.PageTools;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 
 
@@ -14,28 +13,40 @@ public class SearchPage extends PageTools {
     private By resultName = By.cssSelector("span.a-size-medium.a-color-base.a-text-normal");
     private By subString = By.cssSelector("div.a-row.a-size-base.a-color-secondary");
 
-    public void findResults () {
+    public void findResults() {
         waitForElementVisibility(searchResults);
         Collections.searchResults().addAll(getElements(searchResults));
     }
-    public void parseResults () {
-        for(WebElement we : Collections.searchResults()) {
-            String name, author;
-            name = we.findElement(resultName).getText();
-            author = validateAuthor(we.findElement(subString).getText());
-            Collections.bookList().add(new Book(name,author,isBestSeller(we)));
+
+    public void parseResults() {
+        for(int i = 0; i<Collections.searchResults().size(); i++ ) {
+            String name = getSubElementText(Collections.searchResults().get(i), resultName);
+            String author = validateAuthor(getSubElementText(Collections.searchResults().get(i), subString));
+            boolean isBestSeller = isElementContainsText(Collections.searchResults().get(i), "Best Seller");
+            addABookToCollection(name,author,isBestSeller);
         }
+        /*
+        for (WebElement we : Collections.searchResults()) {
+            addABookToCollection(getSubElementText(we, resultName),validateAuthor(getSubElementText(we, subString)),isBestSeller(we));
+        }
+        */
     }
 
-    private String validateAuthor (String s) {
+    private String validateAuthor(String s) {
         try {
             return cutStrFromTo(s, ' ', '|');
-        }
-        catch (StringIndexOutOfBoundsException ex){
+        } catch (StringIndexOutOfBoundsException ex) {
             return s;
         }
     }
-    private boolean isBestSeller (WebElement we) {
-        return (we.getText().contains("Best Seller"));
+
+    private void addABookToCollection(String name, String author, boolean isBestSeller) {
+        Collections.bookList().add(new Book(name, author, isBestSeller));
     }
+
+
+
+
+
+
 }
