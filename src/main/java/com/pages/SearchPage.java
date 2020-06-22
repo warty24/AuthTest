@@ -30,7 +30,7 @@ public class SearchPage extends PageTools {
         }
 
     }
-    //branch testing
+    //branch testing 2
 
     private String validateAuthor(String s) {
         try {
