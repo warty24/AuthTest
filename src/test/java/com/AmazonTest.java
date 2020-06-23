@@ -24,10 +24,8 @@ public class AmazonTest extends BaseTest {
         expectedBook.setName(Pages.productPage().getProductName());
         expectedBook.setAuthor(Pages.productPage().getBookAuthor());
         expectedBook.setBestSeller(Pages.productPage().isBestSeller());
-        expectedBook.cOutBook();
 
-
-            Assert.assertTrue(Actions.searchPageActions().isBookInCollection(listOfBooks,expectedBook),
+            Assert.assertTrue(listOfBooks.contains(expectedBook),
                     "Expected book is not present");
 
     }

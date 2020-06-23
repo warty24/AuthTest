@@ -8,11 +8,6 @@ public class Book {
     public Book () {
     }
 
-    public void cOutBook() {
-        if(isBestSeller) System.out.println("!!!!Best Seller!!!");
-        System.out.println(name);
-        if(author != "null") System.out.println(author);
-    }
     public void setBestSeller(boolean isBestSeller) {
         this.isBestSeller = isBestSeller;
     }
@@ -28,11 +23,22 @@ public class Book {
     public String getAuthor() {
         return author;
     }
-    public boolean bookComparator (Book a){
-        if (!(a.getName().equals(name))) return false;
-        else if (!(a.getAuthor().equals(author))) return false;
-        else if ((a.isBestSeller ^ isBestSeller)) return false;
-        else return true;
+    @Override
+    public boolean equals (Object o) {
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return name.equals(book.name) &&
+                author.equals(book.author) &&
+                isBestSeller == book.isBestSeller;
     }
+    @Override
+    public int hashCode(){
+        int hash = 13;
+        hash = hash * 47 + name.hashCode();
+        hash = hash * 47 + author.hashCode();
+        if (isBestSeller) hash *= 47;
+        return hash;
+    }
+
 }
 

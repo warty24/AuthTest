@@ -21,11 +21,4 @@ public class SearchPageActions {
         }
         return listOfBooks;
     }
-
-    public boolean isBookInCollection (List<Book> bList, Book expectedBook) {
-        for(Book b : bList) {
-            if (b.bookComparator(expectedBook)) return true;
-        }
-        return false;
-    }
 }
