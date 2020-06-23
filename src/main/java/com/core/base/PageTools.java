@@ -152,23 +152,6 @@ public class PageTools extends AllureLogger {
         logInfo(getPreviousMethodNameAsText() + ", element --> " + byLocator(by, args));
         return isCondition(Condition.exist, by, args);
     }
-    protected boolean isExist (WebElement we)
-    {
-        try {
-            if (we != null) {
-                return true;
-            }
-        }
-        catch (NoSuchElementException ex)
-        {
-            return false;
-        }
-        return false;
-    }
-    protected boolean isElementContainsText(WebElement we, String text)
-    {
-        return (getElementText(we).contains(text));
-    }
 
     /*Working with wait*/
     protected boolean isElementEnabled(By by, Object... args) {
