@@ -2,7 +2,6 @@ package com.actions;
 
 import com.collections.Book;
 import com.pages.Pages;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +22,7 @@ public class SearchPageActions {
         }
         return listOfBooks;
     }
+
     public boolean isBookInCollection (List<Book> bList, Book expectedBook)
     {
         for(Book b : bList) {

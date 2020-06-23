@@ -15,25 +15,17 @@ public class ProductPage extends PageTools {
         Selenide.open(Constants.EXPECTED_BOOK_URL);
     }
     public String getProductName() {
-        System.out.println(getElementText(productTitle));
         return getElementText(productTitle);
     }
     public String getBookAuthor() {
         try {
-            System.out.println(getElementAttributeValue("href", bookAuthor));
             return getElementText( bookAuthor);
         }
         catch (AssertionError e){
             System.out.println(e.getMessage());
             return "null";
         }
-
     }
-    /*
-    public String getBookAuthor () {
-        return cutStrFromTo(getBookAuthorElement(),'\n','(').replace("(Author),\n", "and ");
-    }
-    */
     public boolean isBestSeller () {
         return isElementExists(bestSeller);
     }

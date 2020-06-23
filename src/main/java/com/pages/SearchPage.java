@@ -1,17 +1,12 @@
 package com.pages;
 
-import com.collections.Book;
-import com.collections.Collections;
 import com.core.base.PageTools;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 
 
 public class SearchPage extends PageTools {
 
     private By searchResults = By.xpath("//div[@data-component-type='s-search-result']");
-    private By resultName = By.cssSelector("span.a-size-medium.a-color-base.a-text-normal");
-    private By subString = By.cssSelector("div.a-row.a-size-base.a-color-secondary:nth-of-type($)");
 
 
     private By bookTitle = By.xpath("//div[@data-component-type='s-search-result'][%s]//h2//span");

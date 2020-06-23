@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static org.testng.Assert.assertTrue;
 
 public class AmazonTest extends BaseTest {
     @Test
@@ -18,13 +17,7 @@ public class AmazonTest extends BaseTest {
 
         Actions.mainPageActions().search("java");
         List<Book> listOfBooks = Actions.searchPageActions().getBooksFromSearchPage();
-        /*
-        for (Book b : listOfBooks)
-        {
-            System.out.println(listOfBooks.indexOf(b));
-            b.cOutBook();
-        }
-        */
+
 
         Pages.productPage().loadPage();
 
