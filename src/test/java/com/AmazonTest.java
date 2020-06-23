@@ -1,7 +1,6 @@
 package com;
 
 import com.actions.Actions;
-import com.actions.SearchPageActions;
 import com.collections.Book;
 import com.core.base.BaseTest;
 import com.pages.Pages;
@@ -17,7 +16,6 @@ public class AmazonTest extends BaseTest {
 
         Actions.mainPageActions().search("java");
         List<Book> listOfBooks = Actions.searchPageActions().getBooksFromSearchPage();
-
 
         Pages.productPage().loadPage();
 

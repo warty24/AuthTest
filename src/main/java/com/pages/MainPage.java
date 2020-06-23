@@ -19,8 +19,7 @@ public class MainPage extends PageTools {
         type(search, searchBox);
         clickEnterButton();
     }
-    public void setFilter ()
-    {
+    public void setFilter () {
         click(dropDownBox);
         click(bookPartition);
     }

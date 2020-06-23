@@ -18,17 +18,14 @@ public class SearchPageActions {
             book.setBestSeller(Pages.searchPage().getIsBestSeller(i+1));
 
             listOfBooks.add(book);
-
         }
         return listOfBooks;
     }
 
-    public boolean isBookInCollection (List<Book> bList, Book expectedBook)
-    {
+    public boolean isBookInCollection (List<Book> bList, Book expectedBook) {
         for(Book b : bList) {
             if (b.bookComparator(expectedBook)) return true;
         }
         return false;
     }
-
 }

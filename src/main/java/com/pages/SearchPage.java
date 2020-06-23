@@ -30,13 +30,9 @@ public class SearchPage extends PageTools {
            System.out.println(e.getMessage());
            return  "null";
        }
-
     }
     public boolean getIsBestSeller(int index){
         return isElementExists(isBestSeller, index);
     }
-
-
-
 
 }
