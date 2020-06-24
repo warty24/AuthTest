@@ -11,10 +11,13 @@ public class LoginPage  extends PageTools {
     private By invalidPswdField = By.xpath("//div [@class =\"auth0-global-message auth0-global-message-error\"]");
 
     public void enterUserName() {
-        type("mail"+ randomNumber(1000)+"@mail.test",mailField);
+        type(Constants.USERNAME,mailField);
     }
     public void enterPassword() {
         type(Constants.PASSWORD,pswdField);
+    }
+    public void enterInvalidUserName() {
+        type("mail"+ randomNumber(1000)+"@mail.test",mailField);
     }
     public void enterInvalidPassword() {
         type("Not today",pswdField);

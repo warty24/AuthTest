@@ -9,7 +9,7 @@ public class LoginPageActions {
         Pages.loginPage().submit();
     }
     public void logInWrongPassword(){
-        Pages.loginPage().enterUserName();
+        Pages.loginPage().enterInvalidUserName();
         Pages.loginPage().enterInvalidPassword();
         Pages.loginPage().submit();
     }
