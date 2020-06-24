@@ -24,7 +24,7 @@ public class LoginPage  extends PageTools {
     }
     public boolean isContainsErrMsg () {
         if(!isElementExists(invalidPswdField)) waitASec();
-        return isElementExists(invalidPswdField);
+        return (getElementText(invalidPswdField).contains("WRONG EMAIL OR PASSWORD."));
     }
 
 }

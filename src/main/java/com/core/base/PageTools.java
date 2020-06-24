@@ -201,9 +201,6 @@ public class PageTools extends AllureLogger {
     protected int randomNumber (int min, int max) {
         return (int) (Math.random() * max) + min;
     }
-    protected String randomNumberStr (int max) {
-        return Integer.toString(randomNumber(max));
-    }
     protected int randomNumber (int max) {
         return (int) (Math.random() * max);
     }
