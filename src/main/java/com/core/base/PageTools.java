@@ -167,10 +167,6 @@ public class PageTools extends AllureLogger {
         return shouldBe(Condition.visible, by, args).text();
     }
 
-    protected String getSubElementText (WebElement we, By nameLocator) {
-        return getElementText(findElementInsideOther(we, nameLocator));
-    }
-
     protected String getElementAttributeValue(String attr, By by, Object... args) {
         logInfo(getPreviousMethodNameAsText() + ", element --> " + byLocator(by, args));
         return shouldBe(Condition.enabled, by, args).attr(attr);
@@ -202,12 +198,10 @@ public class PageTools extends AllureLogger {
     protected void openPage (String url)
     {
         Selenide.open(url);
+        Selenide.sleep(20);
     }
-    protected WebElement findElementInsideOther (WebElement we, By by){
-        return we.findElement(by);
-    }
-    protected String getElementText(WebElement we) {
-        return  we.getText();
+    protected void loooongWait () {
+        Selenide.sleep(30000);
     }
 
 

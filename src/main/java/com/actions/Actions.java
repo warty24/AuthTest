@@ -2,19 +2,14 @@ package com.actions;
 
 
 public class Actions {
-    private static MainPageActions mainPageActions;
-    private static SearchPageActions searchPageActions;
 
-    public static MainPageActions mainPageActions() {
-        if (mainPageActions == null) {
-            mainPageActions = new MainPageActions();
+    private static LoginPageActions loginPageActions;
+
+    public static LoginPageActions loginPageActions() {
+        if (loginPageActions == null) {
+            loginPageActions = new LoginPageActions();
         }
-        return mainPageActions;
+        return loginPageActions;
     }
-    public static SearchPageActions searchPageActions() {
-        if (searchPageActions == null) {
-            searchPageActions= new SearchPageActions();
-        }
-        return searchPageActions;
-    }
+
 }
