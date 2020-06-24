@@ -6,9 +6,9 @@ import org.openqa.selenium.By;
 
 public class LoginPage  extends PageTools {
 
-    private By mailField = By.xpath("//*[@class=\"auth0-lock-input-block auth0-lock-input-email\"]//input");
-    private By pswdField = By.xpath("//*[@class=\"auth0-lock-input-show-password\"]//input");
-    private By invalidPswdField = By.xpath("//div [@class =\"auth0-global-message auth0-global-message-error\"]");
+    private By mailField = By.xpath("//input[@name=\"email\"]");
+    private By pswdField = By.xpath("//input[@name=\"password\"]");
+    private By invalidPswdMsg = By.xpath("//div [@class =\"auth0-global-message auth0-global-message-error\"]");
 
     public void enterUserName() {
         type(Constants.USERNAME,mailField);
@@ -26,8 +26,8 @@ public class LoginPage  extends PageTools {
         clickEnterButton();
     }
     public boolean isContainsErrMsg () {
-        if(!isElementExists(invalidPswdField)) waitASec();
-        return (getElementText(invalidPswdField).contains("WRONG EMAIL OR PASSWORD."));
+        if(!isElementExists(invalidPswdMsg)) waitASec();
+        return (getElementText(invalidPswdMsg).contains("WRONG EMAIL OR PASSWORD."));
     }
 
 }
