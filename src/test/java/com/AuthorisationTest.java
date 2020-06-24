@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 public class AuthorisationTest extends BaseTest {
     @Test
     public void authorisationTest() {
-        Actions.loginPageActions().logIn();
-        Pages.mainPage().clickUserMenu();
-        Assert.assertTrue(Pages.mainPage().isPageContainsLogOutButton());
+        Actions.loginPageActions().logInWrongPassword();
+
+        Assert.assertTrue(Pages.loginPage().isContainsErrMsg());
     }
 }

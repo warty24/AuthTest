@@ -200,8 +200,8 @@ public class PageTools extends AllureLogger {
         Selenide.open(url);
         Selenide.sleep(20);
     }
-    protected void loooongWait () {
-        Selenide.sleep(30000);
+    protected void waitASec () {
+        Selenide.sleep(1000);
     }
 
 
