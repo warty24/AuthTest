@@ -10,12 +10,8 @@ public class LoginPage  extends PageTools {
     private By pswdField = By.xpath("//*[@class=\"auth0-lock-input-show-password\"]//input");
     private By invalidPswdField = By.xpath("//div [@class =\"auth0-global-message auth0-global-message-error\"]");
 
-    public void start(){
-        openPage(Constants.MAIN_PAGE_URL);
-
-    }
     public void enterUserName() {
-        type(Constants.USERNAME,mailField);
+        type("mail"+ randomNumber(1000)+"@mail.test",mailField);
     }
     public void enterPassword() {
         type(Constants.PASSWORD,pswdField);
